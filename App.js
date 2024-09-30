@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { ContextProvider } from "./context/context";
 import AuthLoading from "./screens/AuthLoading";
 import SplashScreen from "./screens/SplashScreen";
+import KnowMore from "./screens/KnowMore";
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,11 @@ export default function App() {
             name="SplashScreen"
             options={{ headerShown: false }}
             component={SplashScreen}
+          />
+          <Stack.Screen
+            name="KnowMore"
+            options={{ headerShown: false }}
+            component={KnowMore}
           />
         </Stack.Navigator>
       </NavigationContainer>

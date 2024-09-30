@@ -134,7 +134,7 @@ export default function SplashScreen({ navigation }) {
             </Text>
           </View>
           <View style={[align.self_center]}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("KnowMore")}>
               <LinearGradient
                 colors={["#99D633", "#04080F"]}
                 start={{ x: 0.5, y: 0 }}

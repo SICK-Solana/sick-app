@@ -1,9 +1,18 @@
 // todo
-import React, { useEffect, useContext } from "react";
-import { View, ActivityIndicator, StyleSheet, BackHandler, Alert } from "react-native";
+import React, { useContext, useEffect } from "react";
+
+import {
+  ActivityIndicator,
+  Alert,
+  BackHandler,
+  StyleSheet,
+  View,
+} from "react-native";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigationState } from "@react-navigation/native";
+
 import { Context } from "../context/context";
-import { useNavigationState } from '@react-navigation/native';
 
 const AuthLoadingScreen = ({ navigation }) => {
   const { setUserToken, setUserId, setWalletStatus } = useContext(Context);
@@ -33,13 +42,13 @@ const AuthLoadingScreen = ({ navigation }) => {
           navigation.navigate("ClaimInvestment");
         }
       } else {
-        navigation.navigate("SplashScreen")
+        navigation.navigate("SplashScreen");
       }
     };
     checkUserToken();
   }, []);
 
-  const navigationState = useNavigationState(state => state);
+  const navigationState = useNavigationState((state) => state);
 
   useEffect(() => {
     const backAction = () => {
@@ -53,16 +62,16 @@ const AuthLoadingScreen = ({ navigation }) => {
               {
                 text: "Cancel",
                 onPress: () => null,
-                style: "cancel"
+                style: "cancel",
               },
               {
                 text: "Go to Dashboard",
-                onPress: () => navigation.navigate("DashboardTabs")
+                onPress: () => navigation.navigate("DashboardTabs"),
               },
               {
                 text: "Exit",
-                onPress: () => BackHandler.exitApp()
-              }
+                onPress: () => BackHandler.exitApp(),
+              },
             ],
             { cancelable: true }
           );
@@ -79,12 +88,12 @@ const AuthLoadingScreen = ({ navigation }) => {
             {
               text: "Cancel",
               onPress: () => null,
-              style: "cancel"
+              style: "cancel",
             },
             {
               text: "Exit",
-              onPress: () => BackHandler.exitApp()
-            }
+              onPress: () => BackHandler.exitApp(),
+            },
           ],
           { cancelable: true }
         );

@@ -5,8 +5,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { ContextProvider } from "./context/context";
 import AuthLoading from "./screens/AuthLoading";
-import SplashScreen from "./screens/SplashScreen";
 import KnowMore from "./screens/KnowMore";
+import SplashScreen from "./screens/SplashScreen";
+import AppNavigator from "./components/AppNavigator";
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ export default function App() {
     <ContextProvider>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="SplashScreen"
+          initialRouteName="AppNavigator"
           screenOptions={{ headerShown: false }}
         >
           {/* <Stack.Screen
@@ -32,6 +33,11 @@ export default function App() {
             name="KnowMore"
             options={{ headerShown: false }}
             component={KnowMore}
+          />
+          <Stack.Screen
+            name="AppNavigator"
+            options={{ headerShown: false }}
+            component={AppNavigator}
           />
         </Stack.Navigator>
       </NavigationContainer>

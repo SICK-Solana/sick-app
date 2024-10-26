@@ -5,12 +5,12 @@ import { Text, TouchableOpacity, View } from "react-native";
 // prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
 
-import Insets from "../components/Insets";
+import AppWrapper from "../../components/AppNavigator";
 
-export default function Screen({ navigation }) {
+export default function ExploreCrate({ navigation }) {
   return (
-    <View>
-      <Insets />
-    </View>
+
+    <Text style={[text.color_("white")]}>hello ExploreCrate</Text>
+
   );
 }

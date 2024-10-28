@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 
+import dummyPfp from "../assets/icons/dummy-pfp.png";
+import logoTransp from "../assets/icons/logo-transparent.png";
 import CrateCreator from "../screens/CrateCreator";
 import Dashboard from "../screens/Dashboard";
 import ExploreCrate from "../screens/ExploreCrate";
@@ -119,13 +123,13 @@ export default function AppNavigator() {
   const renderComponent = (componentName) => {
     switch (componentName) {
       case "Dashboard":
-        return <Dashboard />;
+        return <Dashboard navigate={setCurrentComponent} />;
       case "ExploreCrate":
-        return <ExploreCrate />;
+        return <ExploreCrate navigate={setCurrentComponent} />;
       case "Sai":
         return <Sai />;
       case "CrateCreator":
-        return <CrateCreator />;
+        return <CrateCreator navigate={setCurrentComponent} />;
       default:
         return <Text>Unknown Component</Text>;
     }
@@ -136,23 +140,41 @@ export default function AppNavigator() {
   return (
     <LinearGradient
       colors={["#0A1019", "#02050A"]}
-      style={[h.h_("100%"), w.w_("102%")]}
+      style={[h.h_("100%"), w.w_("100%")]}
     >
       <Insets />
-      {componentToRender}
+      <View style={[flex.row, justify.between, p.p_4, align.items_center]}>
+        <Image source={logoTransp} style={[w.w_10, h.h_10]} />
+        <View style={[flex.row, align.items_center, flex.gap_4, p.pr_4]}>
+          <TouchableOpacity>
+            <MaterialCommunityIcons name="logout" size={30} color="#9CA3AF" />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Ionicons name="wallet-outline" size={30} color="#9CA3AF" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setCurrentComponent("Dashboard")}>
+            <Image
+              source={dummyPfp}
+              style={[w.w_10, h.h_10, bdr.rounded_full]}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View style={[p.px_4]}>{componentToRender}</View>
       <View
         style={[
           pos.absolute,
           pos.b_0,
           pos.r_0,
           pos.l_0,
-          { backdropFilter: "blur(10px)" },
+          fx.bg_color_("hsla(0, 0%, 0%, 0.6)"),
           bdr.t_w_1,
           bdr.l_w_1,
           bdr.r_w_1,
-          m.ml_(-8),
-          { borderTopColor: "#4A4C4F" },
-          bdr.rounded_t_3xl,
+          m.mx_(-1),
+          { blurRadius: 90 },
+          { borderTopColor: "#4A4C4F", borderRightColor: "#4A4C4F", borderLeftColor: "#4A4C4F"},
+          bdr.rounded_t_(40),
           z.index_50,
         ]}
       >

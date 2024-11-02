@@ -5,7 +5,6 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { ArrowBigDown, ArrowBigUp, Bookmark } from "lucide-react-native";
 import { WebView } from "react-native-webview";
 
-import Loader from "../assets/miscellaneous/loader.png";
 import { truncate } from "../utils/helper";
 import tokenData from "../utils/tokens.json";
 // prettier-ignore

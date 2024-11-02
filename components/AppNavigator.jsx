@@ -19,7 +19,7 @@ import Insets from "./Insets";
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
 
 export default function AppNavigator() {
-  const [currentComponent, setCurrentComponent] = useState("Dashboard");
+  const [currentComponent, setCurrentComponent] = useState("ExploreCrate");
 
   const bottomNavData = [
     {
@@ -145,7 +145,7 @@ export default function AppNavigator() {
       <Insets />
       <View style={[flex.row, justify.between, p.p_4, align.items_center]}>
         <Image source={logoTransp} style={[w.w_10, h.h_10]} />
-        <View style={[flex.row, align.items_center, flex.gap_4, p.pr_4]}>
+        <View style={[flex.row, align.items_center, flex.gap_4]}>
           <TouchableOpacity>
             <MaterialCommunityIcons name="logout" size={30} color="#9CA3AF" />
           </TouchableOpacity>
@@ -173,7 +173,11 @@ export default function AppNavigator() {
           bdr.r_w_1,
           m.mx_(-1),
           { blurRadius: 90 },
-          { borderTopColor: "#4A4C4F", borderRightColor: "#4A4C4F", borderLeftColor: "#4A4C4F"},
+          {
+            borderTopColor: "#4A4C4F",
+            borderRightColor: "#4A4C4F",
+            borderLeftColor: "#4A4C4F",
+          },
           bdr.rounded_t_(40),
           z.index_50,
         ]}

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import {
   ActivityIndicator,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  ScrollView
 } from "react-native";
 
 import Feather from "@expo/vector-icons/Feather";
@@ -68,7 +68,9 @@ export default function Dashboard({ navigate }) {
           <Text style={[text.color_("#238636"), text.fs_lg]}>▲ 🚀</Text>
           <MaskedView
             maskElement={
-              <Text style={[text.font_family("SpaceMono-Bold"), text.fs_4xl]}>$sol {userWalletValue.toFixed(2)}</Text>
+              <Text style={[text.font_family("SpaceMono-Bold"), text.fs_4xl]}>
+                $sol {userWalletValue.toFixed(2)}
+              </Text>
             }
             style={[m.mt_4]}
           >
@@ -77,43 +79,97 @@ export default function Dashboard({ navigate }) {
               start={{ x: 0, y: 0 }}
               end={{ x: 0, y: 1 }}
             >
-              <Text style={[fx.opacity_0, text.font_family("SpaceMono-Bold"), text.fs_4xl]}>
+              <Text
+                style={[
+                  fx.opacity_0,
+                  text.font_family("SpaceMono-Bold"),
+                  text.fs_4xl,
+                ]}
+              >
                 $sol {userWalletValue.toFixed(2)}
               </Text>
             </LinearGradient>
           </MaskedView>
-          <Text style={[text.color_("#7C838D"), text.font_family("SpaceMono-Regular"), text.fs_lg]}>current_value</Text>
+          <Text
+            style={[
+              text.color_("#7C838D"),
+              text.font_family("SpaceMono-Regular"),
+              text.fs_lg,
+            ]}
+          >
+            current_value
+          </Text>
         </View>
         <View style={[p.py_5, bdr.b_w_1, bdr.color_("#223115")]}>
-          <Text style={[text.color_("#7C838D"), text.font_family("SpaceMono-Regular"), text.center]}>SOL_Balance: <Text style={[text.color_("#ACF11A")]}>{userWalletValue.toFixed(2)} SOL</Text></Text>
+          <Text
+            style={[
+              text.color_("#7C838D"),
+              text.font_family("SpaceMono-Regular"),
+              text.center,
+            ]}
+          >
+            SOL_Balance:{" "}
+            <Text style={[text.color_("#ACF11A")]}>
+              {userWalletValue.toFixed(2)} SOL
+            </Text>
+          </Text>
         </View>
         <View style={[p.py_6, justify.end, align.items_end, p.pr_4]}>
           <TouchableOpacity
             onPress={() => navigate("CrateCreator")}
             style={[flex.row, align.items_center]}
           >
-            <Text style={[text.color_("#238636"), text.font_family("SpaceMono-Regular")]}>create_crate</Text>
+            <Text
+              style={[
+                text.color_("#238636"),
+                text.font_family("SpaceMono-Regular"),
+              ]}
+            >
+              create_crate
+            </Text>
             <Feather name="arrow-up-right" size={18} color="#238636" />
           </TouchableOpacity>
         </View>
       </LinearGradient>
       <View style={[m.mt_8]}>
-        <Text style={[text.color_("#9CA3AF"), text.font_family("SpaceMono-Regular")]}>// crates</Text>
-        <Text style={[text.color_("#B6FF1B"), text.fs_xl, text.font_family("SpaceMono-Regular")]}>saved</Text>
+        <Text
+          style={[
+            text.color_("#9CA3AF"),
+            text.font_family("SpaceMono-Regular"),
+          ]}
+        >
+          // crates
+        </Text>
+        <Text
+          style={[
+            text.color_("#B6FF1B"),
+            text.fs_xl,
+            text.font_family("SpaceMono-Regular"),
+          ]}
+        >
+          saved
+        </Text>
         <View style={[flex.row, justify.start, flex.gap_2, m.mt_4]}>
           {sortingOptions.map((option) => (
             <TouchableOpacity
               key={option}
               style={[
-                p.p_(10), p.px_3, bdr.rounded_(100),
-                savedSort === option ? fx.bg_color_("#B6FF1B") : fx.bg_color_("#1C2128"),
+                p.p_(10),
+                p.px_3,
+                bdr.rounded_(100),
+                savedSort === option ?
+                  fx.bg_color_("#B6FF1B")
+                : fx.bg_color_("#1C2128"),
               ]}
               onPress={() => setSavedSort(option)}
             >
               <Text
                 style={[
-                  text.font_family("SpaceMono-Regular"), text.fs_sm,
-                  savedSort === option ? text.color_("black") : text.color_("white"),
+                  text.font_family("SpaceMono-Regular"),
+                  text.fs_sm,
+                  savedSort === option ?
+                    text.color_("black")
+                  : text.color_("white"),
                 ]}
               >
                 {option}
@@ -125,15 +181,22 @@ export default function Dashboard({ navigate }) {
           <TouchableOpacity
             key={"Most Downvotes"}
             style={[
-              p.p_(10), p.px_3, bdr.rounded_(100),
-              savedSort === "Most Downvotes" ? fx.bg_color_("#B6FF1B") : fx.bg_color_("#1C2128"),
+              p.p_(10),
+              p.px_3,
+              bdr.rounded_(100),
+              savedSort === "Most Downvotes" ?
+                fx.bg_color_("#B6FF1B")
+              : fx.bg_color_("#1C2128"),
             ]}
             onPress={() => setSavedSort("Most Downvotes")}
           >
             <Text
               style={[
-                text.font_family("SpaceMono-Regular"), text.fs_sm,
-                savedSort === "Most Downvotes" ? text.color_("black") : text.color_("white"),
+                text.font_family("SpaceMono-Regular"),
+                text.fs_sm,
+                savedSort === "Most Downvotes" ?
+                  text.color_("black")
+                : text.color_("white"),
               ]}
             >
               {"Most Downvotes"}

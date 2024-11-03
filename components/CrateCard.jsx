@@ -86,7 +86,7 @@ export default function CrateCard({ crate, weightedPriceChange }) {
           style={[
             text.fs_xs,
             m.ml_2,
-            text.color_(weightedPriceChange >= 0 ? "green" : "red"),
+            text.color_(weightedPriceChange >= 0 ? "rgb(34 197 94)" : "rgb(239 68 68)"),
           ]}
         >
           {weightedPriceChange >= 0 ? "▲ " : "▼ "}

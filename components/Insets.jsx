@@ -8,7 +8,7 @@ import { fx, h } from "nativeflowcss";
 export default function Insets() {
   return (
     <View
-      style={[h.h_(Constants.statusBarHeight), fx.bg_color_("white")]}
+      style={[h.h_(Constants.statusBarHeight), fx.bg_color_("#D0DDD8")]}
     ></View>
   );
 }

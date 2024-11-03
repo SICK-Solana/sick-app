@@ -7,15 +7,15 @@ import {
   View,
 } from "react-native";
 
-import Loader from "../../components/Loader";
+import Loader from "../../../components/Loader";
 
-import CrateCard from "../../components/CrateCard";
-import useCrateCharts from "../../hooks/useCrateCharts";
-import { sortCrates } from "../../utils/helper"
+import CrateCard from "../../../components/CrateCard";
+import useCrateCharts from "../../../hooks/useCrateCharts";
+import { sortCrates } from "../../../utils/helper"
 // prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
 
-export default function ExploreCrate({ navigate }) {
+export default function ExploreCrate({ navigate, setCurrentCrateView }) {
   const [sort, setSort] = useState("Newest");
   const [crates, setCrates] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -43,6 +43,12 @@ export default function ExploreCrate({ navigate }) {
     const sortedCrates = sortCrates(crates, sort);
     setCrates(sortedCrates);
   }, [sort]);
+
+
+  function handleCrateClick(crate) {
+    setCurrentCrateView(crate);
+    navigate("CrateView");
+  }
 
   return (
     <ScrollView>
@@ -83,11 +89,15 @@ export default function ExploreCrate({ navigate }) {
           <Loader />
         ) : (
           crates.map((crate) => (
-            <CrateCard
+            <TouchableOpacity
               key={crate.id}
-              crate={crate}
-              weightedPriceChange={weightedPriceChanges[crate.id] || 0}
-            />
+              onPress={() => handleCrateClick(crate)}
+            >
+              <CrateCard
+                crate={crate}
+                weightedPriceChange={weightedPriceChanges[crate.id] || 0}
+              />
+            </TouchableOpacity>
           ))
         )}
       </View>

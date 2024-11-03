@@ -24,8 +24,8 @@ export default function Dashboard({ navigate }) {
   const sortingOptions = ["Newest", "Most Upvotes"];
 
   const [fontsLoaded] = useFonts({
-    "SpaceMono-Regular": require("../../assets/fonts/SpaceMono-Regular.ttf"),
-    "SpaceMono-Bold": require("../../assets/fonts/SpaceMono-Bold.ttf"),
+    "SpaceMono-Regular": require("../../../assets/fonts/SpaceMono-Regular.ttf"),
+    "SpaceMono-Bold": require("../../../assets/fonts/SpaceMono-Bold.ttf"),
   });
 
   if (!fontsLoaded) {

@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { LinearGradient } from "expo-linear-gradient";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Constants from "expo-constants";
 
 // prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
@@ -16,13 +18,21 @@ import Card3 from "../assets/cards/know-more-3.png";
 import logoTransp from "../assets/icons/logo-transparent.png";
 import Insets from "../components/Insets";
 
-const DotIndicator = ({ selected }) => (
-  <View style={[styles.dot, selected && styles.selectedDot]} />
-);
-
 export default function SplashScreen({ navigation }) {
   const pagerRef = useRef(null);
   const [selectedPage, setSelectedPage] = useState(0);
+
+  const handleConnection = async () => {
+    try {
+      console.log("connect init")
+      await AsyncStorage.setItem("walletConnected", "true");
+      await AsyncStorage.setItem("userToken", "true");
+      await AsyncStorage.setItem("userId", "true");
+      console.log("connect complete")
+    } catch (error) {
+      console.error("Error updating wallet connection status:", error);
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -70,6 +80,7 @@ export default function SplashScreen({ navigation }) {
                 justify.center,
                 align.items_center,
               ]}
+              onPress={handleConnection}
             >
               <Text style={[text.fs_xl, text.fw_bold]}>Connect</Text>
             </TouchableOpacity>
@@ -123,7 +134,7 @@ export default function SplashScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <Image
-        style={[z.index_10, pos.absolute, pos.t_11, pos.l_0]}
+        style={[z.index_10, pos.absolute, pos.t_(Constants.statusBarHeight), pos.l_0]}
         source={cornerBlur}
       />
     </LinearGradient>

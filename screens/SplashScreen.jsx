@@ -3,6 +3,8 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { LinearGradient } from "expo-linear-gradient";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Constants from "expo-constants";
 
 // prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
@@ -12,6 +14,14 @@ import logoTransp from "../assets/icons/logo-transparent.png";
 import Insets from "../components/Insets";
 
 export default function SplashScreen({ navigation }) {
+  const handleConnection = async () => {
+    try {
+      await AsyncStorage.setItem("walletConnected", "true");
+    } catch (error) {
+      console.error("Error updating wallet connection status:", error);
+    }
+  };
+
   return (
     <LinearGradient
       colors={["#0A1019", "#04080F"]}
@@ -46,6 +56,7 @@ export default function SplashScreen({ navigation }) {
                 justify.center,
                 align.items_center,
               ]}
+              onPress={handleConnection}
             >
               <Text style={[text.fs_xl, text.fw_bold]}>Connect</Text>
             </TouchableOpacity>
@@ -154,7 +165,7 @@ export default function SplashScreen({ navigation }) {
         </View>
       </View>
       <Image
-        style={[z.index_10, pos.absolute, pos.t_11, pos.l_0]}
+        style={[z.index_10, pos.absolute, pos.t_(Constants.statusBarHeight), pos.l_0]}
         source={cornerBlur}
       />
     </LinearGradient>

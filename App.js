@@ -3,7 +3,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import AppNavigator from "./components/AppNavigator";
+import AppNavigator from "./screens/AppNavigator";
 import { ContextProvider } from "./context/context";
 import AuthLoading from "./screens/AuthLoading";
 import KnowMore from "./screens/KnowMore";
@@ -16,14 +16,14 @@ export default function App() {
     <ContextProvider>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="AppNavigator"
+          initialRouteName="AuthLoading"
           screenOptions={{ headerShown: false }}
         >
-          {/* <Stack.Screen
+          <Stack.Screen
               name="AuthLoading"
               options={{ headerShown: false }}
               component={AuthLoading}
-            /> */}
+            />
           <Stack.Screen
             name="SplashScreen"
             options={{ headerShown: false }}

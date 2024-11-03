@@ -7,11 +7,11 @@ import {
   View,
 } from "react-native";
 
-import Loader from "../../../components/Loader";
+import Loader from "../../components/Loader";
 
-import CrateCard from "../../../components/CrateCard";
-import useCrateCharts from "../../../hooks/useCrateCharts";
-import { sortCrates } from "../../../utils/helper"
+import CrateCard from "../../components/CrateCard";
+import useCrateCharts from "../../hooks/useCrateCharts";
+import { sortCrates } from "../../utils/helper"
 // prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
 

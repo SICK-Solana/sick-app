@@ -10,7 +10,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import dummyPfp from "../../assets/icons/dummy-pfp.png";
 import logoTransp from "../../assets/icons/logo-transparent.png";
-import CrateCreator from "./CrateCreator";
+import CrateCreator from "./CrateCrator";
 import Dashboard from "./Dashboard";
 import ExploreCrate from "./ExploreCrate";
 import CrateView from "./CrateView";

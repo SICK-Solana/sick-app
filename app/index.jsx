@@ -8,8 +8,10 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Context } from "../context/context";
+import { useRouter } from "expo-router";
 
-const AuthLoadingScreen = ({ navigation }) => {
+const AuthLoadingScreen = () => {
+  const router = useRouter();
   const { setUserToken, setUserId, setWalletStatus } = useContext(Context);
 
   useEffect(() => {
@@ -31,42 +33,42 @@ const AuthLoadingScreen = ({ navigation }) => {
           setWalletStatus(localConnection);
 
           if (localConnection) {
-            navigation.navigate("AppNavigator");
+            router.push("/AppNavigator");
           } else {
-            navigation.navigate("SplashScreen");
+            router.push("/SplashScreen");
           }
         } else {
-          navigation.navigate("SplashScreen");
+          router.push("/SplashScreen");
         }
       } catch (error) {
         console.error("Error checking user token:", error);
-        navigation.navigate("SplashScreen");
+        router.push("/SplashScreen");
       }
     };
 
     checkUserToken();
+  }, [router]);
+
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert("Hold on!", "Are you sure you want to go back?", [
+        {
+          text: "Cancel",
+          onPress: () => null,
+          style: "cancel",
+        },
+        { text: "YES", onPress: () => BackHandler.exitApp() },
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
   }, []);
-
-  // useEffect(() => {
-  //   const backAction = () => {
-  //     Alert.alert("Hold on!", "Are you sure you want to go back?", [
-  //       {
-  //         text: "Cancel",
-  //         onPress: () => null,
-  //         style: "cancel",
-  //       },
-  //       { text: "YES", onPress: () => BackHandler.exitApp() },
-  //     ]);
-  //     return true;
-  //   };
-
-  //   const backHandler = BackHandler.addEventListener(
-  //     "hardwareBackPress",
-  //     backAction
-  //   );
-
-  //   return () => backHandler.remove();
-  // }, []);
 
   return (
     <View style={styles.container}>

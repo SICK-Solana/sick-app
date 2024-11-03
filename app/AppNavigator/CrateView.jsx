@@ -7,9 +7,9 @@ import {
   View,
 } from "react-native";
 
-import Loader from "../../../components/Loader";
+import Loader from "../../components/Loader";
 
-import useCrateCharts from "../../../hooks/useCrateCharts";
+import useCrateCharts from "../../hooks/useCrateCharts";
 // prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
 

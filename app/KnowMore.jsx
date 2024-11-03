@@ -5,6 +5,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
+import { useRouter } from "expo-router";
 
 // prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
@@ -18,7 +19,8 @@ import Card3 from "../assets/cards/know-more-3.png";
 import logoTransp from "../assets/icons/logo-transparent.png";
 import Insets from "../components/Insets";
 
-export default function SplashScreen({ navigation }) {
+export default function SplashScreen({ }) {
+  const router = useRouter();
   const pagerRef = useRef(null);
   const [selectedPage, setSelectedPage] = useState(0);
 
@@ -126,7 +128,7 @@ export default function SplashScreen({ navigation }) {
             p.py_2,
             bdr.rounded_full,
           ]}
-          onPress={() => navigation.navigate("AppNavigator")}
+          onPress={() => router.push("AppNavigator")}
         >
           <Text style={[text.fs_2xl, text.fw_black, text.color_("#A3E635")]}>
             Get Started

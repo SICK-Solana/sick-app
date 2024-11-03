@@ -5,6 +5,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
+import { useRouter } from "expo-router";
 
 // prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
@@ -13,7 +14,9 @@ import cornerBlur from "../assets/bg/landing-blur.png";
 import logoTransp from "../assets/icons/logo-transparent.png";
 import Insets from "../components/Insets";
 
-export default function SplashScreen({ navigation }) {
+export default function SplashScreen({  }) {
+  const router = useRouter();
+
   const handleConnection = async () => {
     try {
       await AsyncStorage.setItem("walletConnected", "true");
@@ -145,7 +148,7 @@ export default function SplashScreen({ navigation }) {
             </Text>
           </View>
           <View style={[align.self_center]}>
-            <TouchableOpacity onPress={() => navigation.navigate("KnowMore")}>
+            <TouchableOpacity onPress={() => router.push("KnowMore")}>
               <LinearGradient
                 colors={["#99D633", "#04080F"]}
                 start={{ x: 0.5, y: 0 }}

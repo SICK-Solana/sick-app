@@ -15,19 +15,16 @@ const useCrateCharts = (crates) => {
           crates.flatMap(crate => crate.tokens.map(token => token.coingeckoId))
         );
         const ids = Array.from(allCoingeckoIds).join(',');
-        console.log("Fetching data for these ids:", ids);
         const response = await fetch(
           `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${ids}&order=market_cap_desc&per_page=${allCoingeckoIds.size}&page=1&sparkline=true&price_change_percentage=24h`
         );
         const data = await response.json();
-        console.log("Received price data:", data);
 
         const processedData = {};
         const processedWeightedPriceChanges = {};
 
         crates.forEach(crate => {
           const { chartData, weightedPriceChange } = processChartData(data, crate.tokens);
-          console.log("Processed chart data for crate", crate.id, chartData);
           processedData[crate.id] = chartData;
           processedWeightedPriceChanges[crate.id] = weightedPriceChange;
         });

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "sick-native",
-    "slug": "sick-native",
+    "name": "sick-app",
+    "slug": "sick-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

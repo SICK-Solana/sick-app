@@ -1,6 +1,10 @@
 // https://docs.solanamobile.com/react-native/expo
-import { getRandomValues as expoCryptoGetRandomValues } from "expo-crypto";
 import { Buffer } from "buffer";
+
+import { getRandomValues as expoCryptoGetRandomValues } from "expo-crypto";
+
+import "expo-router/entry";
+
 global.Buffer = Buffer;
 
 // getRandomValues polyfill
@@ -19,5 +23,3 @@ const webCrypto = typeof crypto !== "undefined" ? crypto : new Crypto();
     });
   }
 })();
-
-import "expo-router/entry";

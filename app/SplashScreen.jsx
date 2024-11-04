@@ -2,9 +2,9 @@ import React from "react";
 
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
+import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 
 // prettier-ignore
@@ -14,7 +14,7 @@ import cornerBlur from "../assets/bg/landing-blur.png";
 import logoTransp from "../assets/icons/logo-transparent.png";
 import Insets from "../components/Insets";
 
-export default function SplashScreen({  }) {
+export default function SplashScreen({}) {
   const router = useRouter();
 
   const handleConnection = async () => {
@@ -168,7 +168,12 @@ export default function SplashScreen({  }) {
         </View>
       </View>
       <Image
-        style={[z.index_10, pos.absolute, pos.t_(Constants.statusBarHeight), pos.l_0]}
+        style={[
+          z.index_10,
+          pos.absolute,
+          pos.t_(Constants.statusBarHeight),
+          pos.l_0,
+        ]}
         source={cornerBlur}
       />
     </LinearGradient>

@@ -159,7 +159,7 @@ export default function Dashboard({ navigate }) {
                 bdr.rounded_(100),
                 savedSort === option ?
                   fx.bg_color_("#B6FF1B")
-                  : fx.bg_color_("#1C2128"),
+                : fx.bg_color_("#1C2128"),
               ]}
               onPress={() => setSavedSort(option)}
             >
@@ -169,7 +169,7 @@ export default function Dashboard({ navigate }) {
                   text.fs_sm,
                   savedSort === option ?
                     text.color_("black")
-                    : text.color_("white"),
+                  : text.color_("white"),
                 ]}
               >
                 {option}
@@ -186,7 +186,7 @@ export default function Dashboard({ navigate }) {
               bdr.rounded_(100),
               savedSort === "Most Downvotes" ?
                 fx.bg_color_("#B6FF1B")
-                : fx.bg_color_("#1C2128"),
+              : fx.bg_color_("#1C2128"),
             ]}
             onPress={() => setSavedSort("Most Downvotes")}
           >
@@ -196,7 +196,7 @@ export default function Dashboard({ navigate }) {
                 text.fs_sm,
                 savedSort === "Most Downvotes" ?
                   text.color_("black")
-                  : text.color_("white"),
+                : text.color_("white"),
               ]}
             >
               {"Most Downvotes"}

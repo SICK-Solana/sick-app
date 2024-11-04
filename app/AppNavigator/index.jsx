@@ -10,76 +10,76 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import dummyPfp from "../../assets/icons/dummy-pfp.png";
 import logoTransp from "../../assets/icons/logo-transparent.png";
+import Insets from "../../components/Insets";
 import CrateCreator from "./CrateCrator";
+import CrateView from "./CrateView";
 import Dashboard from "./Dashboard";
 import ExploreCrate from "./ExploreCrate";
-import CrateView from "./CrateView";
 import Sai from "./Sai";
-import Insets from "../../components/Insets";
 //prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
 
 export default function AppNavigator() {
-  const [currentComponent, setCurrentComponent] = useState("Dashboard");
+  const [currentComponent, setCurrentComponent] = useState("CrateView");
   const [currentCrateView, setCurrentCrateView] = useState({
-    "id": "cm2wzq8i800003afs6o6cc4ca",
-    "name": "Gumshoe HighBets",
-    "image": "https://arweave.net/A1etRNMKxhlNGTf-gNBtJ75QJJ4NJtbKh_UXQTlLXzI",
-    "createdAt": "2024-10-31T07:35:01.853Z",
-    "updatedAt": "2024-11-01T09:48:41.496Z",
-    "totalCost": 0,
-    "creatorId": "cm1numkyt0000c6am3dpa2ne1",
-    "upvotes": 1,
-    "downvotes": 0,
-    "tokens": [
+    id: "cm2wzq8i800003afs6o6cc4ca",
+    name: "Gumshoe HighBets",
+    image: "https://arweave.net/A1etRNMKxhlNGTf-gNBtJ75QJJ4NJtbKh_UXQTlLXzI",
+    createdAt: "2024-10-31T07:35:01.853Z",
+    updatedAt: "2024-11-01T09:48:41.496Z",
+    totalCost: 0,
+    creatorId: "cm1numkyt0000c6am3dpa2ne1",
+    upvotes: 1,
+    downvotes: 0,
+    tokens: [
       {
-        "id": "cm2wzq9um00023afsio57v60u",
-        "symbol": "POPCAT",
-        "name": "Popcat",
-        "quantity": 30,
-        "coingeckoId": "popcat",
-        "createdAt": "2024-10-31T07:35:04.799Z",
-        "crateId": "cm2wzq8i800003afs6o6cc4ca"
+        id: "cm2wzq9um00023afsio57v60u",
+        symbol: "POPCAT",
+        name: "Popcat",
+        quantity: 30,
+        coingeckoId: "popcat",
+        createdAt: "2024-10-31T07:35:04.799Z",
+        crateId: "cm2wzq8i800003afs6o6cc4ca",
       },
       {
-        "id": "cm2wzq9um00043afssg1lrl49",
-        "symbol": "$WIF",
-        "name": "dogwifhat",
-        "quantity": 25,
-        "coingeckoId": "dogwifcoin",
-        "createdAt": "2024-10-31T07:35:04.799Z",
-        "crateId": "cm2wzq8i800003afs6o6cc4ca"
+        id: "cm2wzq9um00043afssg1lrl49",
+        symbol: "$WIF",
+        name: "dogwifhat",
+        quantity: 25,
+        coingeckoId: "dogwifcoin",
+        createdAt: "2024-10-31T07:35:04.799Z",
+        crateId: "cm2wzq8i800003afs6o6cc4ca",
       },
       {
-        "id": "cm2wzqatj00083afsro9xzurm",
-        "symbol": "WEN",
-        "name": "Wen",
-        "quantity": 15,
-        "coingeckoId": "wen-4",
-        "createdAt": "2024-10-31T07:35:04.799Z",
-        "crateId": "cm2wzq8i800003afs6o6cc4ca"
+        id: "cm2wzqatj00083afsro9xzurm",
+        symbol: "WEN",
+        name: "Wen",
+        quantity: 15,
+        coingeckoId: "wen-4",
+        createdAt: "2024-10-31T07:35:04.799Z",
+        crateId: "cm2wzq8i800003afs6o6cc4ca",
       },
       {
-        "id": "cm2wzqata00063afsep93fnmh",
-        "symbol": "FWOG",
-        "name": "FWOG",
-        "quantity": 30,
-        "coingeckoId": "fwog",
-        "createdAt": "2024-10-31T07:35:04.799Z",
-        "crateId": "cm2wzq8i800003afs6o6cc4ca"
-      }
+        id: "cm2wzqata00063afsep93fnmh",
+        symbol: "FWOG",
+        name: "FWOG",
+        quantity: 30,
+        coingeckoId: "fwog",
+        createdAt: "2024-10-31T07:35:04.799Z",
+        crateId: "cm2wzq8i800003afs6o6cc4ca",
+      },
     ],
-    "creator": {
-      "id": "cm1numkyt0000c6am3dpa2ne1",
-      "name": "Rishabh",
-      "email": "pandeyrishabh966@gmail.com",
-      "username": "rizzabh",
-      "walletAddress": "CZXk43VhMhFNsVcPRcA1cH9QRQMqQ49yqmsAEio4n3NL",
-      "image": "",
-      "emailVerified": false,
-      "createdAt": "2024-09-29T17:22:36.582Z",
-      "updatedAt": "2024-09-29T17:22:36.582Z"
-    }
+    creator: {
+      id: "cm1numkyt0000c6am3dpa2ne1",
+      name: "Rishabh",
+      email: "pandeyrishabh966@gmail.com",
+      username: "rizzabh",
+      walletAddress: "CZXk43VhMhFNsVcPRcA1cH9QRQMqQ49yqmsAEio4n3NL",
+      image: "",
+      emailVerified: false,
+      createdAt: "2024-09-29T17:22:36.582Z",
+      updatedAt: "2024-09-29T17:22:36.582Z",
+    },
   });
 
   const bottomNavData = [
@@ -92,7 +92,7 @@ export default function AppNavigator() {
           style={
             currentComponent === "Dashboard" ?
               styles.activeIcon
-              : styles.inactiveIcon
+            : styles.inactiveIcon
           }
         />
       ),
@@ -101,7 +101,7 @@ export default function AppNavigator() {
           style={
             currentComponent === "Dashboard" ?
               styles.activeText
-              : styles.inactiveText
+            : styles.inactiveText
           }
         >
           {currentComponent === "Dashboard" ? "/" : ""}dashboard
@@ -115,21 +115,22 @@ export default function AppNavigator() {
           name="cube-outline"
           size={24}
           style={
-            currentComponent === "ExploreCrate" ?
+            currentComponent === "ExploreCrate" || "CrateView" ?
               styles.activeIcon
-              : styles.inactiveIcon
+            : styles.inactiveIcon
           }
         />
       ),
       name: (
         <Text
           style={
-            currentComponent === "ExploreCrate" ?
+            currentComponent === "ExploreCrate" || "CrateView" ?
               styles.activeText
-              : styles.inactiveText
+            : styles.inactiveText
           }
         >
-          {currentComponent === "ExploreCrate" ? "/" : ""}explore-crate
+          {currentComponent === "ExploreCrate" || "CrateView" ? "/" : ""}
+          explore-crate
         </Text>
       ),
     },
@@ -163,7 +164,7 @@ export default function AppNavigator() {
           style={
             currentComponent === "CrateCreator" ?
               styles.activeIcon
-              : styles.inactiveIcon
+            : styles.inactiveIcon
           }
         />
       ),
@@ -172,7 +173,7 @@ export default function AppNavigator() {
           style={
             currentComponent === "CrateCreator" ?
               styles.activeText
-              : styles.inactiveText
+            : styles.inactiveText
           }
         >
           {currentComponent === "CrateCreator" ? "/" : ""}crate-creator
@@ -186,13 +187,20 @@ export default function AppNavigator() {
       case "Dashboard":
         return <Dashboard navigate={setCurrentComponent} />;
       case "ExploreCrate":
-        return <ExploreCrate navigate={setCurrentComponent} setCurrentCrateView={setCurrentCrateView} />;
+        return (
+          <ExploreCrate
+            navigate={setCurrentComponent}
+            setCurrentCrateView={setCurrentCrateView}
+          />
+        );
       case "Sai":
         return <Sai />;
       case "CrateCreator":
         return <CrateCreator navigate={setCurrentComponent} />;
       case "CrateView":
-        return <CrateView navigate={setCurrentComponent} crate={currentCrateView} />;
+        return (
+          <CrateView navigate={setCurrentComponent} crate={currentCrateView} />
+        );
       default:
         return <Text>Unknown Component</Text>;
     }

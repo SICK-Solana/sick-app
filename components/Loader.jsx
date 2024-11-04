@@ -1,7 +1,8 @@
-import React from 'react';
-import { View, Image, StyleSheet, Animated, Easing } from 'react-native';
+import React from "react";
 
-import { size, flex, justify, align } from "nativeflowcss";
+import { Animated, Easing, Image, StyleSheet, View } from "react-native";
+
+import { align, flex, justify, size } from "nativeflowcss";
 
 export default function Loader() {
   const rotateValue = new Animated.Value(0);
@@ -17,13 +18,13 @@ export default function Loader() {
 
   const rotate = rotateValue.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
+    outputRange: ["0deg", "360deg"],
   });
 
   return (
     <View style={[flex.f_1, justify.center, align.items_center]}>
       <Animated.Image
-        source={require('../assets/miscellaneous/loader.png')}
+        source={require("../assets/miscellaneous/loader.png")}
         style={[size.s_(180), { transform: [{ rotate }] }]}
       />
     </View>

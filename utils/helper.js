@@ -20,4 +20,4 @@ export function sortCrates(crates, sortOption) {
     }
     return 0;
   });
-};
+}

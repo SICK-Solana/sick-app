@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Constants from "expo-constants";
+import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 
 // prettier-ignore
@@ -19,18 +19,18 @@ import Card3 from "../assets/cards/know-more-3.png";
 import logoTransp from "../assets/icons/logo-transparent.png";
 import Insets from "../components/Insets";
 
-export default function SplashScreen({ }) {
+export default function SplashScreen({}) {
   const router = useRouter();
   const pagerRef = useRef(null);
   const [selectedPage, setSelectedPage] = useState(0);
 
   const handleConnection = async () => {
     try {
-      console.log("connect init")
+      console.log("connect init");
       await AsyncStorage.setItem("walletConnected", "true");
       await AsyncStorage.setItem("userToken", "true");
       await AsyncStorage.setItem("userId", "true");
-      console.log("connect complete")
+      console.log("connect complete");
     } catch (error) {
       console.error("Error updating wallet connection status:", error);
     }
@@ -136,7 +136,12 @@ export default function SplashScreen({ }) {
         </TouchableOpacity>
       </View>
       <Image
-        style={[z.index_10, pos.absolute, pos.t_(Constants.statusBarHeight), pos.l_0]}
+        style={[
+          z.index_10,
+          pos.absolute,
+          pos.t_(Constants.statusBarHeight),
+          pos.l_0,
+        ]}
         source={cornerBlur}
       />
     </LinearGradient>

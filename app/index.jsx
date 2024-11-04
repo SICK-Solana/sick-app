@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+
 import {
   ActivityIndicator,
   Alert,
@@ -6,9 +7,11 @@ import {
   StyleSheet,
   View,
 } from "react-native";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Context } from "../context/context";
 import { useRouter } from "expo-router";
+
+import { Context } from "../context/context";
 
 const AuthLoadingScreen = () => {
   const router = useRouter();

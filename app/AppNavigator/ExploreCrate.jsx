@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-
-import Loader from "../../components/Loader";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 import CrateCard from "../../components/CrateCard";
+import Loader from "../../components/Loader";
 import useCrateCharts from "../../hooks/useCrateCharts";
-import { sortCrates } from "../../utils/helper"
+import { sortCrates } from "../../utils/helper";
 // prettier-ignore
 import { p, m, flex, align, justify, place, text, decoration, w, h, size, fx, shadow, aspect, object_fit, display, direction, pos, z, overflow, bdr } from "nativeflowcss";
 
@@ -44,7 +38,6 @@ export default function ExploreCrate({ navigate, setCurrentCrateView }) {
     setCrates(sortedCrates);
   }, [sort]);
 
-
   function handleCrateClick(crate) {
     setCurrentCrateView(crate);
     navigate("CrateView");
@@ -66,16 +59,14 @@ export default function ExploreCrate({ navigate, setCurrentCrateView }) {
                 bdr.rounded_(100),
                 sort === option ?
                   fx.bg_color_("#B6FF1B")
-                  : fx.bg_color_("#1C2128"),
+                : fx.bg_color_("#1C2128"),
               ]}
               onPress={() => setSort(option)}
             >
               <Text
                 style={[
                   text.fw_semibold,
-                  sort === option ?
-                    text.color_("black")
-                    : text.color_("white"),
+                  sort === option ? text.color_("black") : text.color_("white"),
                 ]}
               >
                 {option}
@@ -85,10 +76,9 @@ export default function ExploreCrate({ navigate, setCurrentCrateView }) {
         </View>
       </View>
       <View style={[p.py_6, flex.gap_6]}>
-        {loading ? (
+        {loading ?
           <Loader />
-        ) : (
-          crates.map((crate) => (
+        : crates.map((crate) => (
             <TouchableOpacity
               key={crate.id}
               onPress={() => handleCrateClick(crate)}
@@ -99,7 +89,7 @@ export default function ExploreCrate({ navigate, setCurrentCrateView }) {
               />
             </TouchableOpacity>
           ))
-        )}
+        }
       </View>
       <View style={[h.h_52]}></View>
     </ScrollView>
